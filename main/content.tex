@@ -1,0 +1,74 @@
+\usepackage{setspace}
+\usepackage{hyperref}
+\usepackage{textcomp}
+\usepackage{graphicx}
+\graphicspath{ {images/} }
+\usepackage{float}
+\usepackage{chemformula}
+\usepackage{xcolor}
+\usepackage{titlesec}
+
+% Make todos
+\newcommand{\todo}[1]{{\color{red} [TODO: #1]}}
+
+% Scene delimiters
+\newcommand{\scene}{
+  \begin{center}--- --- ---
+\end{center}}
+
+\newcommand{\quickwordcount}[1]{%
+  \immediate\write18{texcount -1 -merge -sum -q #1.tex > #1-words.sum}%
+  \input{#1-words.sum}%
+}
+
+\hfuzz=5.002pt
+
+\title{TITLE}
+\author{B.D. Killeen}
+\date{                          %
+  \today\\
+  \href{https://benjamindkilleen.com}{benjamindkilleen.com} \\
+  % \quickwordcount{main}
+  %% words. \\
+  \vfill
+  \normalsize
+  \copyright{ }\the\year{} by B.D. Killeen\\
+  All rights reserved.
+}
+
+% Custom headers/footers
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\fancyhf[HLE,HRO]{LASTNAME}
+\fancyhf[HRE,HLO]{TITLE}
+\setlength{\headheight}{14.5pt}
+
+\begin{document}
+
+\frontmatter{}
+\singlespacing{}
+\maketitle
+
+% \tableofcontents
+
+\mainspacing{}
+
+\mainmatter{}
+
+% Oganize your novel parts into different files.
+% Some people have a different file for every chapter.
+% I prefer three or four "parts" with 10 - 15 chapters in each.
+% Use \input (not \include) otherwise pandoc breaks.
+\input{parts/part1}
+
+% \backmatter
+% Backmatter
+% \input{parts/acknowledgments}
+
+\end{document}
+
+%%% Local Variables:
+%%% mode: LaTeX
+%%% TeX-master: "./main.tex"
+%%% TeX-command-extra-options: "-shell-escape --enable-write18 --synctex=1"
+%%% End:
