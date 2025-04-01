@@ -12,7 +12,7 @@ mobile:
 	mv mobile.pdf "${TITLE} by ${AUTHOR} (mobile) ${DATE}.pdf"
 
 word:
-	pandoc -o "${TITLE} by ${AUTHOR}.docx" simple-main.tex --reference-doc=styles/custom-reference.docx
+	pandoc -o "${TITLE} by ${AUTHOR}.docx" simple-main.tex --reference-doc=styles/custom-reference-short.docx
 	open "${TITLE} by ${AUTHOR}.docx"
 
 rtf:
