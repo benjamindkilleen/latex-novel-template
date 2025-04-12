@@ -12,9 +12,12 @@
 \newcommand{\todo}[1]{{\color{red} [TODO: #1]}}
 
 % Scene delimiters
-\newcommand{\scene}{
-  \begin{center}--- --- ---
-\end{center}}
+\titleformat{\section}
+  {\centering\normalsize}
+  {} % No section number prefix
+  {0em} % Spacing between prefix and title
+  {}
+\newcommand{\scene}{\section*{\#}}
 
 \newcommand{\quickwordcount}[1]{%
   \immediate\write18{texcount -1 -merge -sum -q #1.tex > #1-words.sum}%
@@ -22,18 +25,26 @@
 }
 
 \hfuzz=5.002pt
+\makeatletter
+\def\@maketitle{%
+  {\noindent \@date \par}%
+  \vskip 5em
+  \begin{center}%
+    {\@title \par}%
+    \vskip 1em
+    {\@author \par}
+    \vskip 1em
+  \end{center}%
+  \par
+}
+\makeatother
 
 \title{TITLE}
-\author{B.D. Killeen}
-\date{                          %
-  \today\\
-  \href{https://benjamindkilleen.com}{benjamindkilleen.com} \\
-  % \quickwordcount{main}
-  %% words. \\
-  \vfill
-  \normalsize
-  \copyright{ }\the\year{} by B.D. Killeen\\
-  All rights reserved.
+\author{Benjamin Killeen}
+\date{555 55th St, Apt 5\\
+  Fiftytown, Fiftystate 55555\\
+  +1 (555) 555-5555 \\
+  \href{mailto:fiftyfivefifyfive@gmail.com}{fiftyfivefifyfive@gmail.com}
 }
 
 % Custom headers/footers
