@@ -11,6 +11,12 @@
 % Make todos
 \newcommand{\todo}[1]{{\color{red} [TODO: #1]}}
 
+% For writing summaries
+\definecolor{softblue}{RGB}{100, 130, 200}
+\newenvironment{summary}
+  {\newpage\begingroup\color{softblue}\noindent[} % Begin code: set color and start group
+  {]\endgroup\newpage}
+
 % Scene delimiters
 \titleformat{\section}
   {\centering\normalsize}
