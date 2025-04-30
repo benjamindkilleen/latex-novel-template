@@ -5,10 +5,12 @@ AUTHOR=BD Killeen
 
 pdf:
 	pdflatex main.tex
+	pdflatex main.tex # Run twice to ensure all references are updated
 	mv main.pdf "${TITLE} by ${AUTHOR}.pdf"
 
 mobile:
 	pdflatex -jobname=mobile main.tex
+	pdflatex -jobname=mobile main.tex # Run twice to ensure all references are updated
 	mv mobile.pdf "${TITLE} by ${AUTHOR} (mobile) ${DATE}.pdf"
 
 word:
