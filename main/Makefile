@@ -1,7 +1,7 @@
 INPUT=main.tex
 TITLE=TITLE
 DATE=$(shell date +%Y-%m-%d)
-AUTHOR=BD Killeen
+AUTHOR=Benjamin Killeen
 
 pdf:
 	pdflatex main.tex
